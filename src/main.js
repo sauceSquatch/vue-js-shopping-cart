@@ -30,7 +30,14 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
+  scrollBehavior(to, from, savedPosition) {
+    if(to.has) {
+      return {
+        selector: to.hash
+      }
+    }
+  }
 })
 
 new Vue({
